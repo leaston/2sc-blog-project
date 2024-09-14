@@ -13,6 +13,13 @@
     width: 100%;
     padding: 20px;
     display: flex;
+    align-items: center;
+}
+#part1{
+    margin-left: 20px;
+}
+#part3{
+    transform: translateY(100px);
 }
 footer{
     background-color: var(--main-color);
@@ -27,37 +34,47 @@ section>article{
     width: 500px;
     height: 100px;
 }
+.article-heading>p{
+    /* border: 2px solid red; */
+    width: 320px;
+    height: 70px;
+    margin-bottom: 30px;
+    /* max-height: calc(var(--line-h) * var(--max-ln)); */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    overflow: hidden;
+}
 .article-presentation{
+    background-color: rgba(0, 0, 0, 0.6);
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: cover; */
-    margin-top: 10px;
+    background-size: 100%;
+    margin-top: 30px;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid orange;
     height: 250px;
-    width: 550px;
+    width: 400px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: ease 0.3s;
 }
-/* .article-presentation::after{
-    content: '';
-    position: absolute;
-    width: 548px;
-    height: 249px;
-    border-radius: 10px;
-    transform: translate(-160px, -57px);
-    background-color: rgba(0, 0, 0, 0.55);
-} */
-
+.article-presentation:hover{
+    background-size: 120%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 .article-presentation>button{
     background-color: var(--secondary-color);
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 150px;
+    width: 120px;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transform: translate(370px, 165px);
+    transform: translate(250px, 165px);
 }
 .head-footer{
     display: block;
@@ -120,6 +137,28 @@ section>article{
     margin: 10px;
     gap: 15px;
 }
+.container-article{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.all-articles{
+    border: 2px solid red;
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 35px;
+}
+.articles-item{
+    border: 1px solid gray;
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+    /* display: flex; */
+}
+
 @media screen and (max-width:576px){
     *{
         margin: 0;
@@ -151,7 +190,6 @@ section>article{
         justify-content: center;
         align-items: center;
         display: flex;
-        /* width: 100%; */
         flex-direction: column;
         height: 400px;
     }
@@ -183,6 +221,7 @@ section>article{
         font-weight: bold;
     }
     #part3{
+        align-items: unset;
         order: 2;
     }
     #part3>img{

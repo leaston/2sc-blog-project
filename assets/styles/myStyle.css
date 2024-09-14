@@ -8,4 +8,6 @@
 :root{
     --main-color: #133985;
     --secondary-color: #F69228;
+    --line-h: 24px;
+    --max-ln: 3;
 }

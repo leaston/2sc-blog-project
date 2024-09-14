@@ -13,10 +13,12 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(ArticleRepository $artRepo): Response
     {
-        $article = $artRepo->findOneBy([], ['id' => 'DESC']);
+        $latest_article = $artRepo->findOneBy([], ['id' => 'DESC']);
+        $articles = $artRepo->findAll();
 
         return $this->render('home/home.html.twig', [
-            'article' => $article,
+            'latest_article' => $latest_article,
+            'articles' => $articles
         ]);
         
     }
