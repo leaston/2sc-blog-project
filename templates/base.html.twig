@@ -2,10 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}2cs Blog{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('images/logo/logo.svg') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/myStyle.css">
     {% block stylesheets %}
     {% endblock %}
 
@@ -16,31 +20,79 @@
     {% endblock %}
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-center">
+        <div class="container-fluid">
+            <a href="{{ path('home') }}">
+                <img class="navbar-brand" width="50px" height="50px" src="{{ asset('images/logo/logo.svg') }}" alt="2CSlogo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url('home') }}"> Accueil </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Link</a>
+                    </li>
+                </ul>
+                <a href="{{ path('app_login') }}" role="button" aria-expanded="false">
+                    
+                    <i class="fa fa-user-o"> Se connecter </i>
+                </a>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-primary" type="submit"> Recherche </button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
-<nav class="navbar">
-    <a href="{{ url('home') }}">
-        <img width="60px" height="60px" alt="2cslogo" src="{{ asset('images/logo/logo.svg') }}">
-    </a>
+    {% block body %}{% endblock %}
 
-    <ul>
-        <li> <a href="{{ url('home') }}"> Accueil </a> </li>
-        <li> <a href="#"> Articles </a> </li>
-        <li> <a href="#"> Link 3 </a> </li>
-        <li> <a href="#"> Link 4 </a> </li>
-    </ul>
-
-    <div class="end-navBar">
-        <div class="search-bar" placeholder="Rechercher un article">
-            <input type="search">
+    <footer class="text-center text-lg-start text-light">
+        <div class="container p-4">
+            <div class="row">
+                <div class="head-footer col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <img id="head-footer-element-2" class="head-footer-element" width="65px" height="65px" src="{{ asset('images/logo/bigLogo2cs.svg')}}" alt="logo2cs">
+                    <h5 id="head-footer-element-1" class="head-footer-element text-uppercase">Cabinet Soft Consulting Service</h5>
+                    <div class="contact">
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase my-4">Localisation</h5>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.1484786537862!2d-1.5375538259077375!3d12.305786129127874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xe2e9783e38db1c1%3A0xc308272950477145!2sCabinet%20soft%20consulting%20services-2cs!5e0!3m2!1sfr!2sbf!4v1725665666820!5m2!1sfr!2sbf" width="530" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <a class="button" href="{{ url('app_login') }}"> S'enregistrer </a>
-    </div>
+        <div class="container p-4 pb-0">
+            <section class="mb-4">
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="https://web.facebook.com/groups/softservices/?_rdc=1&_rdr" role="button">
+                    Facebook
+                    <i class="fab fa-facebook-f"></i>
+                </a>
 
+                <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/company/cabinet-soft-consulting-services" role="button" >
+                    Linkedin
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </section>
+        </div>
 
-</nav>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Copyright:Tout droit réserver
+            <a class="text-light" href="https://softconsulting-services.com/">Soft Consulting Service</a>
+        </div>
+    </footer>
 
-{% block body %}{% endblock %}
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

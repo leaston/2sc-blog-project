@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: koHo, sans-serif;
+}
+
+:root{
+    --main-color: #133985;
+    --secondary-color: #F69228;
+}

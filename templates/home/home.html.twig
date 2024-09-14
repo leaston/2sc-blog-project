@@ -4,5 +4,31 @@
 
 
 {% block body %}
+    <div class="container-fluid banner justify-content-center w-100">
+        <div class="col-2 mx-auto" id="part1">
+            <img alt="logo2cs" width="100px" height="100px" src="{{ asset('images/logo/bigLogo2cs.svg') }}">
+        </div>
+        <div class="col-4" id="part2">
+            <h2> Blog du cabinet Soft Consulting Service </h2>
+            <p> Sur cette page vous pouvez retrouvez tout les articles et les derniers postes que nous publions. </p>
+        </div>
+        <div class="col-6" id="part3">
+            <img alt="connected_girl" src="{{ asset('images/illustrations/home_illustration.svg') }}">
+        </div>
+    </div>
+    <section class="articles">
+        <article>
+            <div class="article-heading">
+                <h3> {{ article.titre }} </h3>
+                <p class="text-secondary"> {{ article.description }} </p>
+            </div>
+            <div class="article-presentation bg-image" style="background-image: url('{{ asset('images/upload_article_image/' ~ article.getImage() ) }}');">
+                
+                <!-- <img src="{{ asset('images/upload_article_image/' ~ article.getImage() ) }}" alt="article image"> -->
+                <button> Lire l'article </button>
+            </div>
+        </article>
+
+    </section>
 
 {% endblock %}
