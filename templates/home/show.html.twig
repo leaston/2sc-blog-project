@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid banner d-flex justify-content-center w-100">
+        <div class="col-3 d-flex justify-content-center" id="part1">
+            <img alt="logo2cs" width="100px" height="100px" src="{{ asset('images/logo/bigLogo2cs.svg') }}">
+        </div>
+        <div class="col-9 mx-auto" id="part2">
+            <h2> {{ latest_article.titre }} </h2>
+            <p> {{ latest_article.description }} </p>
+        </div>
+        
+    </div>
+
+    <section class="article-page">
+        <p> Cette article a été rédiger par: <strong> {{ latest_article.author }} </strong> le {{ latest_article.createdAt | date('d M Y' ) }} </p>
+
+        <img width="600px" height="350px" src="{{ asset('images/upload_article_image/' ~ latest_article.getImage() ) }}" alt="" style="border-radius: 10px;">
+        <p>  Source: {{ latest_article.CreditImage }} </p>
+        
+        <div class="article-content">
+            <p> {{ latest_article.contenu | raw}} </p>
+        </div>
+        
+        <hr>
+
+        <h4 class="mb-2"> Commentaire(s) </h4>
+        <div class="comment-area mb-5 border rounded-3 w-50 px-3">
+            <h3 class="comment-title mt-5">
+                <span id="comment-count"> {{ latest_article.comment | length }} commentaire(s) </span>
+            </h3>
+            {{ form(commentForm, {'attr': {'class': 'comment-form'} }) }}
+        </div>
+        
+        <div class="comment-list">
+            <div class="comment-list">
+                {% for com in latest_article.comment %}
+                    {% include 'comment/index.html.twig' with {'comment': com} %}
+                {% endfor %}
+            </div>
+        </div>
+
+        
+
+
+
+        <p> <a class="text-dark" href="{{ path('home') }}"> Retour à l'accueil </a> </p>
+
+    </section>
+
+{% endblock %}

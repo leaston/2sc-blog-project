@@ -29,6 +29,7 @@ class ArticleCrudController extends AbstractCrudController
         return [
             IdField::new('id')-> onlyOnIndex(),
             SlugField::new('slug')->setTargetFieldName('titre'),
+            TextField::new('author')->setLabel('Auteur de l\'article'),
             TextField::new('titre'),
             TextareaField::new('description')->renderAsHtml(),
             TextEditorField::new('contenu'),
@@ -40,6 +41,7 @@ class ArticleCrudController extends AbstractCrudController
                 ->setUploadDir('public/images/upload_article_image')
                 ->setSortable(false)
                 ->setBasePath('images/upload_article_image'),
+            TextField::new('credit_image'),
             DateTimeField::new('createdAt'),
             DateTimeField::new('updatedAt'),
         ];

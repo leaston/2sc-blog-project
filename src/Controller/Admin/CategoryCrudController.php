@@ -17,13 +17,13 @@ class CategoryCrudController extends AbstractCrudController
     }
 
     
-    // public function configureFields(string $pageName): iterable
-    // {
-    //     return [
-    //         IdField::new('id')->onlyOnIndex(),
-    //         SlugField::new('slug')->setTargetFieldName('name'),
-    //         TextField::new('name'),
-    //     ];
-    // }
+    public function configureFields(string $pageName): iterable
+    {
+        return [
+            IdField::new('id')->onlyOnIndex(),
+            SlugField::new('slug')->setTargetFieldName('name'),
+            TextField::new('name'),
+        ];
+    }
     
 }

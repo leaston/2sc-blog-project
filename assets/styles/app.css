@@ -5,11 +5,12 @@
     padding: 0;
     font-family: koHo, serif;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 .banner{
     color: white;
     background-color: var(--main-color);
-    height: 250px;
+    height: 150px;
     width: 100%;
     padding: 20px;
     display: flex;
@@ -19,7 +20,7 @@
     margin-left: 20px;
 }
 #part3{
-    transform: translateY(100px);
+    transform: translateY(60px);
 }
 footer{
     background-color: var(--main-color);
@@ -30,51 +31,70 @@ section>article{
     width: 600px;
     height: 450px;
 }
+.articles-latest{
+    display: flex;
+    justify-content: center;
+}
+
+.article-heading-parent>h4{
+    cursor: default;
+    width: fit-content;
+    transform: translate(20px, 150px);
+}
+.article-heading-container{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-top: 170px;
+}
+.article-heading-container>article{
+    margin: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .article-heading{
-    width: 500px;
+    margin: 10px;
+    width: 400px;
     height: 100px;
 }
+.article-heading>h3{
+    cursor: default;
+    width: 250px;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 .article-heading>p{
-    /* border: 2px solid red; */
-    width: 320px;
+    width: 250px;
     height: 70px;
     margin-bottom: 30px;
-    /* max-height: calc(var(--line-h) * var(--max-ln)); */
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-
     text-overflow: ellipsis;
-    /* white-space: nowrap; */
     overflow: hidden;
 }
 .article-presentation{
-    background-color: rgba(0, 0, 0, 0.6);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    margin-top: 30px;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid orange;
-    height: 250px;
-    width: 400px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    /* width: fit-content; */
     transition: ease 0.3s;
 }
-.article-presentation:hover{
-    background-size: 120%;
-    background-color: rgba(0, 0, 0, 0.6);
+
+.article-presentation>a>img{
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    transition: ease 0.3s;
 }
-.article-presentation>button{
-    background-color: var(--secondary-color);
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 120px;
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transform: translate(250px, 165px);
+.article-presentation>a>img:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 8px 15px;
 }
 .head-footer{
     display: block;
@@ -137,18 +157,16 @@ section>article{
     margin: 10px;
     gap: 15px;
 }
+.all-articles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+}
 .container-article{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-.all-articles{
-    border: 2px solid red;
-    width: 90%;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    padding: 35px;
 }
 .articles-item{
     border: 1px solid gray;
@@ -156,8 +174,24 @@ section>article{
     height: 200px;
     border-radius: 10px;
     margin: 10px;
-    /* display: flex; */
+    padding: 15px;
+    transition: ease 0.3s;
 }
+.articles-item>p{
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+.map>iframe{
+    max-width: 100%; 
+    height: 300px;
+}
+
+
+.articles-item:hover{ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
 
 @media screen and (max-width:576px){
     *{
@@ -194,8 +228,8 @@ section>article{
         height: 400px;
     }
     .map>iframe{
-        width: 330px;
-        height: 300px;
+        max-width: 100%; 
+        height: 250px;
     }
     .form-connection{
         transform: translateX(20px);
@@ -208,14 +242,14 @@ section>article{
     }
     #part1{
         order: 1;
-        margin-bottom: 15px;
+        margin: 15px;
         width: auto;
         height: auto;
     }
     #part2{ 
         order: 3;
         padding: 15px;
-        width: 400px;
+        width: 350px;
     }
     #part2>h2{
         font-weight: bold;

@@ -5,7 +5,8 @@
 
 {% block body %}
     <div class="container-fluid banner justify-content-center w-100">
-        <div class="col-2 mx-auto" id="part1">
+
+        <div class="col-2 mx-auto d-flex justify-content-center" id="part1">
             <img alt="logo2cs" width="100px" height="100px" src="{{ asset('images/logo/bigLogo2cs.svg') }}">
         </div>
         <div class="col-4" id="part2">
@@ -15,30 +16,49 @@
         <div class="col-6" id="part3">
             <img alt="connected_girl" src="{{ asset('images/illustrations/home_illustration.svg') }}">
         </div>
+
     </div>
+
     <section class="articles-latest">
-        <article>
-            <div class="article-heading">
-                <h3> {{ latest_article.titre }} </h3>
-                <p class="text-secondary"> {{ latest_article.description }} </p>
+
+        <div class="article-heading-parent">
+            <h4> Nos articles récents </h4>
+            <div class="article-heading-container row">
+                {% for latest_article in latest_articles %}
+                    <article class="col-3">
+                        <div class="article-heading">
+                            <h3> {{ latest_article.titre }} </h3>
+                            <p class="text-secondary"> {{ latest_article.description }} </p>
+                        </div>
+                        <div class="article-presentation">
+                            <a href="{{ path('show', {id: latest_article.id, slug: latest_article.slug}) }}"> <img width="250px" height="150px" src="{{ asset('images/upload_article_image/' ~ latest_article.getImage() ) }}" alt=""> </a>
+                        </div>
+                    </article>
+                {% endfor %}
             </div>
-            <div class="article-presentation bg-image" style="background-image: url('{{ asset('images/upload_article_image/' ~ latest_article.getImage() ) }}');">
-                
-                <!-- <img src="{{ asset('images/upload_article_image/' ~ latest_article.getImage() ) }}" alt="article image"> -->
-                <button> Lire l'article </button>
-            </div>
-        </article>
+        </div>
 
     </section>
+
     <hr>
-    <section class="all-articles">
-        <div class="container-article">
-            {% for article in articles %}
-                <article class="articles-item">
-                    <h5> {{ article.titre }} </h5>
-                    <p>{{ article.description }}</p>
-                </article>
-            {% endfor %}
+    <div class="all-articles">
+            <h3> Nos articles </h3>
+            <div class="container-article">
+                {% if articles is empty %}
+                    <p>No articles found.</p>
+                {% else %}
+                    {% for article in articles %}
+                        <article class="articles-item">
+                            <h5> {{ article.titre }} </h5>
+                            <p>{{ article.description }}</p>
+                            <button> <a href="{{ path('show', {id: article.id, slug: article.slug}) }}"> Lire l'article </a>
+                        </article>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="pagination-tag">
+                {{ knp_pagination_render( articles ) }}
+            </div>
         </div>
     </section>
 
