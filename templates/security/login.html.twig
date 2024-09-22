@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <form method="post" class="form_connection">
+    <form method="post" class="form-connection">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -15,14 +15,15 @@
         {% endif %}
 
         <h2 class="h3">Connecter vous</h2>
-        <label for="inputUsername">Email ou nom d'utilisateur</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-        <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <div class="input-form">
+            <label for="inputUsername">Email ou nom d'utilisateur</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="" autocomplete="username" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="" autocomplete="current-password" required>
+            
+        </div>
 
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
         <div class="check">
             <label>
@@ -38,12 +39,14 @@
             <a href="#"> S'enregistrer </a>
         </div>
 
-
     </form>
-    <div class="logo-body">
-        <img width="125px" height="125px" alt="2csLogo" src="{{ asset('images/logo/bigLogo2cs.svg') }}">
+    <div class="img-deco">
+        <div class="logo-body">
+            <img width="100px" height="100px" alt="2csLogo" src="{{ asset('images/logo/bigLogo2cs.svg') }}">
+        </div>
+        <div class="guy">
+            <img width="400px" height="400px" alt="Connection guy" src="{{ asset('images/illustrations/conn_guy.svg') }}">
+        </div>
     </div>
-    <div class="guy">
-        <img width="450px" height="450px" alt="Connection guy" src="{{ asset('images/illustrations/conn_guy.svg') }}">
-    </div>
+
 {% endblock %}

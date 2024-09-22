@@ -1,0 +1,19 @@
+.sidebar{
+    background-color: #133985;
+    color: white;
+}
+#main-menu .menu .menu-item-contents{
+    color: white;
+}
+.menu-item{
+    margin: 6px;
+}
+.widgets .widget1 .widget2{
+    border: 2px solid rebeccapurple;
+}
+.widget1 .widget2{
+    background-color: orange;
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+}
